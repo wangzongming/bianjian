@@ -1,0 +1,316 @@
+/* 清除默认样式 */
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td {
+    /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 设置默认字体 */
+body,
+button,
+input,
+select,
+textarea {
+    font-size: 14px;
+    /* font: 16px/1 "SF Pro SC", "HanHei SC", "SF Pro Text", "Myriad Set Pro",
+        "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial",
+        sans-serif;
+    font-family: "SF Pro SC", "HanHei SC", "SF Pro Text", "Myriad Set Pro",
+        "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial",
+        sans-serif; */
+}
+
+h1 {
+    font-size: 18px; /* 18px / 12px = 1.5 */
+}
+h2 {
+    font-size: 16px;
+}
+h3 {
+    font-size: 14px;
+}
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal;
+} /* 将斜体扶正 */
+code,
+kbd,
+pre,
+samp,
+tt {
+} /* 统一等宽字体 */
+small {
+    font-size: 12px;
+} /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 重置文本格式元素 */
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+abbr[title],
+acronym[title] {
+    /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+q:before,
+q:after {
+    content: "";
+}
+
+/* 重置表单元素 */
+legend {
+    color: #000;
+} /* for ie6 */
+fieldset,
+img {
+    border: none;
+} /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+
+/* 重置表格元素 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+    border: none;
+    height: 1px;
+}
+ 
+.goTop {
+    text-align: right;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 99999999999999;
+    /* padding-bottom: 200px */
+}
+.goTop span {
+    font-size: 40px;
+    cursor: pointer;
+}
+ 
+.w-padding {
+    padding: 16px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -o-moz-sizing: border-box;
+}
+.w-padding-top-16 {
+    padding-top: 16px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -o-moz-sizing: border-box;
+}
+ 
+.w-margin-top-6{ 
+    margin-top: 6px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -o-moz-sizing: border-box;
+}
+.w-padding-top-12 {
+    padding-top: 12px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -o-moz-sizing: border-box;
+}
+.w-padding-top-6 {
+    padding-top: 6px;
+}
+.w-padding-top-10 {
+    padding-top: 10px;
+}
+.w-padding-top-8 {
+    padding-top: 8px;
+}
+.w-margin-top-16 {
+    margin-top: 16px;
+}
+.w-padding-top-24 {
+    padding-top: 24px;
+}
+.w-padding-top-48 {
+    padding-top: 48px;
+}
+.w-margin-top-8 {
+    margin-top: 8px;
+}
+.w-margin-top-24 {
+    margin-top: 24px;
+}
+.w-margin-top-48 {
+    margin-top: 48px;
+}
+.w-pointer {
+    cursor: pointer;
+}
+.w-align-center {
+    text-align: center;
+}
+.w-gray {
+    color: #444;
+}
+.w-gray1 {
+    color: rgb(95, 94, 94);
+}
+.w-container {
+    width: 100%;
+    overflow: hidden;
+}
+.w-container p,
+.w-container a,
+.w-container div {
+    overflow-wrap: break-word;
+}
+
+/* 背景色 */
+.w-bg-main{
+    background: #1a73f8;
+}
+
+/* 字体颜色 */
+.w-text-main{ 
+    color: #004b95;
+}
+.w-text-blueBlak {
+    color: #38445c;
+}
+.w-text-blue {
+    color: #1f4f8f;
+}
+.w-text-blue2 {
+    color: #8292ab;
+}
+.w-text-blue3 {
+    color: #19498b;
+}
+.w-text-red {
+    color: #c31b0e;
+}
+
+.w-text-gray {
+    color: #b5b2b9;
+}
+.w-text-gray1 {
+    color: #bcc4cf;
+}
+.w-text-gray2 {
+    color: #787c81;
+}
+
+.w-text-white {
+    color: #ffffff;
+}
+.w-text-glod {
+    color: #d2b68f;
+}
+.w-text-pink {
+    color: #da6f67;
+}
+
+.w-bg-white {
+    background: #ffffff;
+}
+
+.w-bg-gray {
+    background: #f6f9fe;
+}
+.w-bg-disabled {
+    background: #aeb0b2;
+    opacity: 0.6; 
+}
+.w-bg-blue {
+    background: #19498b;
+}
+
+.w-text-sm {
+    font-size: 12px;
+}
+.w-text-md {
+    font-size: 16px;
+}
+.w-text-lg {
+    font-size: 22px;
+}
+
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+/*清除浮动代码*/
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+.clearfloat {
+    zoom: 1;
+}
+
+/* 其他 */
+.pointer {
+    cursor: pointer;
+    -ms-cursor: pointer;
+    -o-cursor: pointer;
+    -webkit-cursor: pointer;
+}
+.w-align-right {
+    text-align: right;
+}
+.w-align-left {
+    text-align: left;
+}
+.w-margin-top-18{
+    margin-top: 18px;
+}
+.w-margin-top-12{
+    margin-top: 12px;
+}
+

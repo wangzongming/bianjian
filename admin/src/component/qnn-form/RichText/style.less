@@ -1,0 +1,28 @@
+.editContainer {
+    position: relative;
+    // border: 1px solid red;
+    // height: 500px !important;
+    :global {
+        .edui-editor-iframeholder.edui-default,
+        .edui-editor.edui-default {
+            width: 100% !important;
+        }
+        // .edui-editor-iframeholder.edui-default:
+        .edui-editor-toolbarboxinner .edui-default {
+            line-height: 20px;
+        }
+
+        .edui-default .edui-editor-toolbarbox {
+            z-index: 999999;
+        }
+        // .edui-editor-iframeholder.edui-default {
+        //     overflow-y: scroll !important;
+        //     position: absolute !important;
+        //     height: 500px !important;
+        // }
+
+        .view {
+            border: 2px solid yellow;
+        }
+    }
+}

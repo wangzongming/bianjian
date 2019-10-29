@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="renderer" content="webkit" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="bookmark" href="favicon.ico" />
+        <title>单位简介</title>
+        <link rel="stylesheet" href="./lib/pintuer/pintuer.css" />
+        <link rel="stylesheet" href="./style/main.css" />
+        <link rel="stylesheet" href="./style/global.css" />
+        <link rel="stylesheet" href="./lib/swiper/swiper.css">
+        <style>
+            .body .tit,
+            .body .info,
+            .body .content {
+                background: white;
+                padding: 24px;
+                box-sizing: border-box;
+            }
+
+            .top-img {
+                width: 100%;
+            }
+
+            .top-img img {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="bg"></div>
+        <div class="root">
+            <div class="context">
+                <!-- 头部模板 .login可加left类名-->
+                <div class="header">
+                </div>
+                <!-- <div class="w-tabs w-text-blue2" id="w-tabs"></div> -->
+                <!-- /头部模板 -->
+
+                <!-- 内容 -->
+                <div class="body">
+                    <div class="top-img">
+                        <img src="./imgs/top_img.jpg" alt="">
+                    </div>
+
+                    <!-- 当前位置 -->
+                    <div class="address-bar"></div>
+                    <!-- /当前位置 -->
+
+                    <!-- <div class="tit w-text-main w-align-center w-padding">
+                        开学第一课，让我们重温习近平提到的“爱国三问”
+                    </div>
+                    <div class="info w-align-center">
+                        <div class="time" id="time">
+                            发布时间：<span class="value"></span>
+                        </div> 
+                        <div class="author" id="author">
+                            作者：<span class="value"></span>
+                        </div>
+                        <div class="visit-number" id="visitNumber">
+                            浏览次数：<span class="value"></span>
+                        </div>
+                    </div> -->
+                    <div id="pageContent" class="content">
+
+                    </div>
+
+                </div>
+                <!-- /内容 -->
+
+                <!-- 底部模板 -->
+                <div class="footer clearfloat"></div>
+                <!-- /底部模板 -->
+                <!-- 友情链接 -->
+                <div class="otherLink">
+                    <div class="sys">
+                        <!-- 系统链接：<span></span> -->
+                    </div>
+                    <div class="yq">
+                        <!-- 友情链接：<span> </span> -->
+                    </div>
+                </div>
+                <!-- /友情链接 -->
+            </div>
+
+        </div>
+
+    </body>
+    <script src="./lib/pintuer/jquery.js"></script>
+    <script src="./lib/pintuer/pintuer.js"></script>
+    <script src="./lib/pintuer/respond.js"></script>
+    <script src="./lib/layui-v2.5.4/layui-v2.5.4/layui/layui.all.js"></script>
+    <script src="./lib/swiper/swiper.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/wxx.js"></script>
+    <script>
+        $(function () {
+
+            var state = {
+                data: null
+            };
+
+            refresh();
+
+            function refresh() {
+                var index = layer.load(1,{
+                    shade: [0.6,"#fff"] //0.1透明度的白色背景
+                });
+
+                var detailType = wxx.getUrlParam("detailType");
+                var id = wxx.getUrlParam("id");
+                var apiName = "danWeiJianJieList";
+                var params = {};
+
+                // 請求顶部轮播
+                w.ajax(apiName,params,function (res) {
+                    layer.close(index)
+                    if (res.success) {
+                        state.data = res.data[0];
+                        render()
+                    } else {
+                        layer.alert(res.message);
+                    }
+                });
+
+            }
+
+            function render() {
+                // $('#visitNumber .value').html(state.data.numberOfVisits)
+                // $('#author .value').html(state.data.createUserName)
+                // $('#time .value').html(wxx.dateFormatByHG(state.data.releaseTime))
+                $('#pageContent').html(state.data.content)
+            }
+
+        });
+    </script>
+
+</html>

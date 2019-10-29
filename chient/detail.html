@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="renderer" content="webkit" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="bookmark" href="favicon.ico" />
+        <title>内容数据</title>
+        <link rel="stylesheet" href="./lib/pintuer/pintuer.css" />
+        <link rel="stylesheet" href="./style/main.css" />
+        <link rel="stylesheet" href="./style/global.css" />
+        <link rel="stylesheet" href="./lib/swiper/swiper.css">
+        <style>
+            /* .body {
+                width: 100%;  
+            } */
+            .body .tit,
+            .body .info,
+            .body .content {
+                background: white;
+                padding: 24px;
+                box-sizing: border-box;
+            }
+
+            .top-img {
+                width: 100%;
+            }
+
+            .top-img img {
+                width: 100%;
+            }
+
+            .tit {
+                font-size: 22px;
+            }
+
+            .info div {
+                display: inline-block;
+                font-weight: 700;
+                margin: 16px 12px 16px 10px;
+            }
+
+            .reply,
+            .liuYan {
+                font-weight: 600;
+                padding: 12px 12px;
+            }
+
+            .reply {
+                margin-top: 32px;
+            }
+
+            .reply .list-media {
+                margin-top: 24px;
+                padding-left: 24px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="bg"></div>
+        <div class="root">
+            <div class="context">
+                <!-- 头部模板 .login可加left类名-->
+                <div class="header">
+                </div>
+                <!-- <div class="w-tabs w-text-blue2" id="w-tabs"></div> -->
+                <!-- /头部模板 -->
+
+                <!-- 内容 -->
+                <div class="body">
+                    <div class="top-img">
+                        <img src="./imgs/top_img.jpg" alt="">
+                    </div>
+
+                    <!-- 当前位置 -->
+                    <div class="address-bar"></div>
+                    <!-- /当前位置 -->
+
+                    <div class="tit w-text-main w-align-center w-padding"></div>
+                    <div class="info w-align-center">
+                        <div class="time" id="time">
+                            发布时间：<span class="value"></span>
+                        </div>
+                        <!-- <div class="unit" id="time">
+                            单位：<span class="value">阿里巴巴</span>
+                        </div> -->
+                        <div class="author" id="author">
+                            作者：<span class="value"></span>
+                        </div>
+                        <div class="visit-number" id="visitNumber">
+                            浏览次数：<span class="value"></span>
+                        </div>
+                    </div>
+
+                    <!-- liuYan会用到 -->
+                    <div class="liuYan" style="display: none;">
+                        问题描述：
+                    </div>
+
+                    <div class="content" id="pageContent"> </div>
+
+                    <!-- liuYan会用到 -->
+                    <div class="reply" style="display: none;">
+                        问题回复：
+                        <ul class="list-media list-underline">
+                            <!-- <li>
+                                <div class="media media-x">
+                                    <strong>回复时间：2017-18-45</strong>
+                                    <div class="clearfloat">
+                                        <div class="float-left" style="width: 70px"> 回复内容：</div>
+                                        <div class="float-left" style="width: 800px">
+                                            拼图是一款开源的专业网页前端UI解决方案
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- /内容 -->
+
+                <!-- 底部模板 -->
+                <div class="footer clearfloat"></div>
+                <!-- /底部模板 -->
+                <!-- 友情链接 -->
+                <div class="otherLink">
+                    <div class="sys">
+                        <!-- 系统链接：<span></span> -->
+                    </div>
+                    <div class="yq">
+                        <!-- 友情链接：<span> </span> -->
+                    </div>
+                </div>
+                <!-- /友情链接 -->
+            </div>
+
+        </div>
+
+    </body>
+    <script src="./lib/pintuer/jquery.js"></script>
+    <script src="./lib/pintuer/pintuer.js"></script>
+    <script src="./lib/pintuer/respond.js"></script>
+    <script src="./lib/layui-v2.5.4/layui-v2.5.4/layui/layui.all.js"></script>
+    <script src="./lib/swiper/swiper.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/wxx.js"></script>
+    <script>
+        $(function () {
+
+            var state = {
+                data: null
+            };
+
+            refresh();
+
+            function refresh() {
+                var index = layer.load(1,{
+                    shade: [0.6,"#fff"] //0.1透明度的白色背景
+                });
+
+                var detailType = wxx.getUrlParam("detailType");
+                var id = wxx.getUrlParam("id");
+                var apiName = "";
+                var params = {};
+                switch (detailType) {
+                    case "duiWuJianShe":
+                        apiName = "duiWuJianSheDetail";
+                        params = {
+                            contingentId: id
+                        }
+                        break;
+
+                    case "bianFangYaoWen":
+                        apiName = "bianFangYaoWenDetail";
+                        params = {
+                            newsId: id
+                        }
+                        break;
+                    case "jiChuDongTai":
+                        apiName = "jiChuDongTaiDetail";
+                        params = {
+                            dynamicsId: id
+                        }
+                        break;
+                    case "reDianZhuanTi":
+                        apiName = "reDianZhuanTiDetail";
+                        params = {
+                            topicsId: id
+                        }
+                        break;
+                    case "bianJianYeWu":
+                        apiName = "bianJianYeWuDetail";
+                        params = {
+                            businessId: id
+                        }
+                        break;
+                    case "wangShangGongShi":
+                        apiName = "wangShangGongShiDetail";
+                        params = {
+                            publicId: id
+                        }
+                        break;
+
+                    case "yiTiHua":
+                        apiName = "yiTiHuaDetail";
+                        params = {
+                            integratedId: id
+                        }
+                        break;
+
+                    case "zongZhiPingTai":
+                        apiName = "zongZhiPingTaiDetail";
+                        params = {
+                            platformId: id
+                        }
+                        break;
+                    case "dangWuGongKai":
+                        apiName = "dangWuGongKaiDetail";
+                        params = {
+                            affairsId: id
+                        }
+                        break;
+
+                    case "tongZhiGongGao":
+                        apiName = "tongZhiGongGaoDetail";
+                        params = {
+                            noticeId: id
+                        }
+                        break;
+                    case "zhuTiJiaoYu":
+                        apiName = "zhuTiJiaoYuDetail";
+                        params = {
+                            thematicId: id
+                        }
+                        break;
+                    case "fuWuShuiPing":
+                        apiName = "fuWuShuiPingDetail";
+                        params = {
+                            serviceId: id
+                        }
+                        break;
+                    case "huiYiJiYao":
+                        apiName = "huiYiJiYaoDetail";
+                        params = {
+                            mettingId: id
+                        }
+                        break;
+                    case "liuYan":
+                        $('.info').hide();
+                        $('.liuYan').show();
+                        $('.reply').show();
+                        // $('.address-bar').hide();
+                        $('.menu').hide();
+                        // window.curRouter.shift();
+                        // window.createTabs() 
+                        $('.address-bar').html('<a onclick="javascript:window.history.go(-1);">返回留言列表</a>');
+                        $("#pageContent").css({
+                            paddingLeft: "24px"
+                        })
+                        apiName = "liuYanDetail";
+                        params = {
+                            msgId: id
+                        }
+                        break;
+                    case "bianJianZhiXing":
+                    case "bianJianZhiXing":
+                        $('.info').hide();
+                        apiName = "bianJianZhiXingList";
+                        break;
+                    case "fuChuang":
+                        $('.info').hide();
+                        apiName = "fuChuangList";
+                        break;
+
+
+                }
+
+
+                // 請求顶部轮播
+                w.ajax(apiName,params,function (res) {
+                    layer.close(index)
+                    if (res.success) {
+                        state.data = res.data;
+                        render()
+
+                        //问题详情页面需要去请求渲染回复数据
+                        if (detailType === 'liuYan') {
+                            var $dom = $('.reply .list-media')
+                            w.ajax("huiFuList",{ msgId: res.data.msgId },function (res) {
+                                layer.close(index)
+                                if (res.success) {
+                                    $.each(res.data,function (index,item) {
+                                        var $item = $('<li>' +
+                                            '<div class="media media-x">' +
+                                            '<strong>回复时间：' + w.dateFormatByHG(item.replyTime) + '</strong>' +
+                                            '<div class="clearfloat">' +
+                                            '<div class="float-left" style="width: 90px"> 回复内容：</div>' +
+                                            '<div class="float-left" style="width: 800px">' + item.content + '</div>'
+                                            + '</div>'
+                                            + '</div>'
+                                            + '</li>');
+                                        $dom.append($item);
+                                    })
+                                    if (!res.data.length) {
+                                        $dom.append($('<div class="noData">暂无回复内容</div>'));
+                                    }
+                                } else {
+                                    layer.alert(res.message);
+                                }
+                            });
+
+                        }
+
+                    } else {
+                        layer.alert(res.message);
+                    }
+                });
+            }
+
+            function render() {
+
+                var detailType = wxx.getUrlParam("detailType");
+                if (detailType === "fuChuang") {
+                    $('#pageContent').html(state.data[0].content);
+                } else if (detailType === "bianJianZhiXing") {
+                    $('#pageContent').html(state.data[0].content);
+                } else {
+                    var time = state.data.releaseTime || state.data.createTime;
+                    var content = state.data.newsContent || state.data.content;
+                    var attachment = state.data.attachment;
+                    var title = state.data.title;
+                    $('.tit').html(title)
+                    $('#visitNumber .value').html(state.data.numberOfVisits)
+                    $('#author .value').html(state.data.createUserName)
+                    $('#time .value').html(wxx.dateFormatByHG(time))
+                    $('#pageContent').html(content);
+
+                    //附件
+                    if (attachment && attachment.length) {
+                        var $attachment = $('<div style="padding-top:12px;border-top: 1px solid #ccc;">附件下载： </div>');
+                        $.each(attachment,function (i,item) {
+                            var url = item.url;
+                            var name = item.name;
+                            $attachment.append('<p style="padding-left:70px"><a style="color:blue" target="_block" href="' + url + '">' + name + '</a></p>')
+                        })
+                        $('#pageContent').append($attachment);
+                    }
+                }
+
+            }
+
+        });
+    </script>
+
+</html>

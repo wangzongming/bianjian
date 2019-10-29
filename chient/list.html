@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="renderer" content="webkit" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="bookmark" href="favicon.ico" />
+        <title>数据列表</title>
+        <link rel="stylesheet" href="./lib/pintuer/pintuer.css" />
+        <link rel="stylesheet" href="./style/main.css" />
+        <link rel="stylesheet" href="./style/global.css" />
+        <link rel="stylesheet" href="./lib/swiper/swiper.css">
+        <style>
+            .body {
+                width: 100%;
+            }
+
+            .top-img {
+                width: 100%;
+            }
+
+            .top-img img {
+                width: 100%;
+            }
+
+            .page-list {
+                width: 100%;
+                padding: 12px;
+                background: white; 
+            
+            }
+
+            .page-list .item {
+                padding: 16px 0px 16px;
+                box-sizing: border-box;
+                border-bottom: 1px solid #eeeeee;
+                box-sizing: border-box;
+                background: rgb(243, 243, 243); 
+            }
+
+            .page-list .item:nth-last-child(1) {
+                border-bottom: 0px;
+            }
+
+            .page-list .item-data:hover {
+                opacity: 0.85;
+                cursor: pointer;
+                color: #123bf0;
+            }
+
+            .page-list .item .col {
+                float: left;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .page-list .item .xuhao {
+                width: 8%;
+            }
+
+            .page-list .item .biaoti {
+                width: 82%;
+                text-align: left;
+            }
+
+            .page-list .item .riqi {
+                width: 10%
+            }
+
+            .page-list .page-list-item-header {
+                background: #d1d1d1;
+            }
+
+            /* 分页样式 */
+            .pageFooter {
+                background: white;
+                /* padding: 12px; */
+                padding:12px;
+                padding-top:0px; 
+            }
+
+            .pageFooter-content {
+                background: #e1ebf6;
+                padding: 12px 12px;
+                font-size: 13px;
+                /* font-weight: 700; */
+            }
+
+            .pageFooter-content .pageFooter-left {
+                line-height: 26px;
+            }
+
+            .pageFooter-content .value-padding {
+                padding: 0px 3px;
+            }
+
+            .pageFooter-content .pageFooter-right .btn {
+                padding: 5px 10px;
+                border-radius: 3px;
+                box-shadow: 0 0 2px rgba(143, 141, 141, 0.404);
+                margin-left: 8px;
+                cursor: pointer;
+            }
+
+            .pageFooter-content .pageFooter-right .goInputContainer {
+                float: left;
+                margin-left: 8px;
+            }
+
+            .pageFooter-content .pageFooter-right .goInputContainer input {
+                height: 26px;
+                border: none;
+                margin-left: 6px;
+                width: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="bg"></div>
+        <div class="root">
+            <div class="context">
+                <!-- 头部模板 .login可加left类名-->
+                <div class="header"></div>
+                <!-- /头部模板 -->
+
+                <!-- 内容 -->
+                <div class="body">
+
+                    <div class="top-img">
+                        <img src="./imgs/02.jpg" alt="">
+                    </div>
+
+                    <!-- 当前位置 -->
+                    <div class="address-bar"></div>
+                    <!-- /当前位置 -->
+
+
+                    <div class="page-list" id="pageList">
+                        <div class="item page-list-item-header clearfloat">
+                            <span class="col xuhao">
+                                <span>序号</span>
+                            </span>
+                            <span class="col biaoti">
+                                <span>标题</span>
+                            </span>
+                            <span class="col riqi">
+                                <span>发布日期</span>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="pageFooter">
+                        <div class="pageFooter-content clearfloat">
+                            <div class="pageFooter-left float-left ">
+                                共<span class="totalPage value-padding w-text-red">0</span>页
+                                总计<span class="totalData value-padding w-text-red">0</span>条记录，
+                                每页<span class="page value-padding w-text-blue">0</span>条记录，
+                                当前第<span class="curPagee value-padding w-text-blue">1</span>页
+                            </div>
+                            <div class="pageFooter-right float-right clearfloat">
+                                <!-- w-bg-disabled -->
+                                <div class="btn startPageBtn float-left w-text-white w-bg-blue">
+                                    首页
+                                </div>
+                                <div class="btn prePageBtn float-left w-text-white w-bg-blue">
+                                    上一页
+                                </div>
+                                <div class="btn nextPageBtn float-left w-text-white w-bg-blue">
+                                    下一页
+                                </div>
+                                <div class="btn endPageBtn float-left w-text-white w-bg-blue">
+                                    尾页
+                                </div>
+
+                                <div class="float-left goInputContainer">
+                                    跳转到<input type="number">
+                                </div>
+                                <div class="btn goPageBtn float-left w-text-white w-bg-blue">
+                                    Go
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /内容 -->
+
+                <!-- 底部模板 -->
+                <div class="footer clearfloat"></div>
+                <!-- /底部模板 -->
+                <!-- 友情链接 -->
+                <div class="otherLink">
+                    <div class="sys">
+                        <!-- 系统链接：<span></span> -->
+                    </div>
+                    <div class="yq">
+                        <!-- 友情链接：<span> </span> -->
+                    </div>
+                </div>
+                <!-- /友情链接 -->
+            </div>
+
+        </div>
+
+    </body>
+    <script src="./lib/pintuer/jquery.js"></script>
+    <script src="./lib/pintuer/pintuer.js"></script>
+    <script src="./lib/pintuer/respond.js"></script>
+    <script src="./lib/layui-v2.5.4/layui-v2.5.4/layui/layui.all.js"></script>
+    <script src="./lib/swiper/swiper.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/wxx.js"></script>
+    <script>
+        $(function () {
+
+            var state = {
+                page: 1,
+                limit: 10,
+                data: [],
+                totalNumber: 0,
+                totalPageNumber: 0,
+            };
+
+            refresh();
+
+            var target = wxx.getUrlParam("target");
+            function refresh() {
+                var index = layer.load(1,{
+                    shade: [0.6,"#fff"], //0.1透明度的白色背景
+                });
+
+                var detailType = wxx.getUrlParam("listType");
+                var id = wxx.getUrlParam("id");
+                var apiName = "";
+                var params = {
+                    limit: state.limit,
+                    page: state.page
+                }
+                switch (detailType) {
+                    case "duiWuJianShe":
+                        apiName = "duiWuJianSheList";
+                        var itemId = wxx.getUrlParam("itemId");
+                        params.itemId = itemId;
+                        break;
+                    case "bianFangYaoWen":
+                        apiName = "bianFangYaoWenList";
+                        break;
+                    case "jiChuDongTai":
+                        apiName = "jiChuDongTaiList";
+                        break;
+                    case "reDianZhuanTi":
+                        apiName = "reDianZhuanTiList";
+                        break;
+                    case "bianJianYeWu":
+                        apiName = "bianJianYeWuList";
+                        break;
+                    case "wangShangGongShi":
+                        apiName = "wangShangGongShiList";
+                        break;
+
+                    case "yiTiHua":
+                        apiName = "yiTiHuaList";
+                        break;
+
+                    case "zongZhiPingTai":
+                        apiName = "zongZhiPingTaiList";
+                        break;
+
+                    case "tongZhiGongGao":
+                        apiName = "tongZhiGongGaoList";
+                        break;
+                    case "liuYan":
+                    case "liuYan0":
+                    case "liuYan1":
+                    case "liuYan2":
+                        apiName = "liuYanList";
+                        params.tel = wxx.getUrlParam("phone");
+                        params.target = wxx.getUrlParam("target");
+                        window.curRouter.shift();
+                        window.createTabs()
+                        $('.menu').hide();
+                        $('.address-bar').html('<a onclick="javascript:window.history.go(-1);">返回</a>');
+                        break;
+
+
+                    case "dangWuGongKai":
+                        apiName = "dangWuGongKaiList";
+                        break;
+                    case "zhuTiJiaoYu":
+                        apiName = "zhuTiJiaoYuList";
+                        break;
+                    case "fuWuShuiPing":
+                        apiName = "fuWuShuiPingList";
+                        break;
+                    case "huiYiJiYao":
+                        apiName = "huiYiJiYaoList";
+                        break;
+                }
+
+                w.ajax(apiName,params,function (res) {
+                    layer.close(index)
+                    if (res.success) {
+                        state.data = res.data;
+                        state.totalNumber = res.totalNumber;
+                        totalNumber = state.totalNumber;
+                        var dataLen = res.data.length;
+                        state.totalPageNumber = (totalNumber / state.limit) < 1 ? 1 : Math.ceil(totalNumber / state.limit);
+                        render();
+
+                        //设置分页信息
+                        $('.totalData').text(totalNumber);
+
+                        $('.totalPage').text(state.totalPageNumber);
+
+                        $('.page').text(state.limit);
+
+                        $('.curPagee').text(state.page);
+
+                        //设置分页按钮状态
+                        //下一页不可被点击 
+                        if ((state.page * state.limit) >= totalNumber) {
+                            $('.nextPageBtn').removeClass(" w-bg-blue").addClass("w-bg-disabled");
+                            $('.nextPageBtn').attr("disabled","true")
+                        } else {
+                            $('.nextPageBtn').removeAttr("disabled");
+                            $('.nextPageBtn').removeClass("w-bg-disabled").addClass("w-bg-blue").removeAttr("disabled")
+                        }
+
+                        //设置上一页不可被点击 
+                        if (state.page == 1) { 
+                            $('.prePageBtn').removeClass("w-bg-blue").addClass("w-bg-disabled");
+                            $('.prePageBtn').attr("disabled","true")
+                        } else {
+                            $('.prePageBtn').removeClass("w-bg-disabled").addClass("w-bg-blue").removeAttr("disabled")
+                        }
+
+                        //设置首页
+                        if (state.page == 1) {
+                            $('.startPageBtn').removeClass("w-bg-blue").addClass("w-bg-disabled");
+                            $('.startPageBtn').attr("disabled","true")
+                        } else {
+                            $('.startPageBtn').removeAttr("disabled");
+                            $('.startPageBtn').addClass("w-bg-blue").removeClass("w-bg-disabled");
+                        }
+
+                        //设置尾页
+                        if (state.page >= (totalNumber / state.limit)) {
+                            $('.endPageBtn').removeClass(" w-bg-blue").addClass("w-bg-disabled");
+                            $('.endPageBtn').attr("disabled","true")
+                        } else {
+                            $('.endPageBtn').removeAttr("disabled")
+                            $('.endPageBtn').addClass(" w-bg-blue").removeClass("w-bg-disabled");
+                        }
+
+
+                        //设置跳转到
+                        if ((totalNumber / state.limit) <= 1) {
+                            $('.goInputContainer input').attr("disabled");
+                            $('.goPageBtn').removeClass(" w-bg-blue").addClass("w-bg-disabled");
+                            $('.goPageBtn').attr("disabled","true")
+                        } else {
+                            $('.goInputContainer input').removeAttr("disabled");
+                            $('.goPageBtn').removeAttr("disabled");
+                            $('.goPageBtn').addClass("w-bg-blue").removeClass("w-bg-disabled");
+                        }
+
+
+                    } else {
+                        layer.alert(res.message);
+                    }
+                });
+
+
+            }
+
+            function render() {
+
+                var detailType = wxx.getUrlParam("listType");
+                var $dom = $("#pageList")
+                $dom.html('');
+                // console.log('列表数据：',state.data)
+                $itemByHeader = $('<div class="item page-list-item-header clearfloat">'
+                    + ' <span class="col xuhao"><span>序号</span></span>'
+                    + '<span class="col biaoti"><span>标题</span></span>'
+                    + '<span class="col riqi"><span>发布日期</span></span>'
+                    + '</div>');
+                $dom.append($itemByHeader);
+                $.each(state.data,function (index,item) {
+                    var $item = null;
+
+                    var title = item.newsTitle;
+                    var time = item.releaseTime;
+                    var id = item.newsId;
+
+                    switch (detailType) {
+                        case "reDianZhuanTi":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.topicsId;
+                            break
+                        case "yiTiHua":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.integratedId;
+                            break;
+                        case "duiWuJianShe":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.contingentId;
+                            break;
+                        case "zongZhiPingTai":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.platformId;
+                            break;
+                        case "dangWuGongKai":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.affairsId;
+                            break;
+                        case "jiChuDongTai":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.dynamicsId;
+                            break;
+                        case "bianJianYeWu":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.businessId;
+                            break;
+                        case "wangShangGongShi":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.publicId;
+                            break;
+
+                        case "tongZhiGongGao":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.noticeId;
+                            break;
+                        case "liuYan":
+                        case "liuYan0":
+                        case "liuYan1":
+                        case "liuYan2":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.msgId;
+                            break;
+                        case "zhuTiJiaoYu":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.thematicId;
+                            break;
+                        case "fuWuShuiPing":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.serviceId;
+                            break;
+                        case "huiYiJiYao":
+                            title = item.title;
+                            time = item.releaseTime;
+                            id = item.mettingId;
+                            break;
+                        default:
+                            break
+                    }
+
+                    $item = $('<div class="item item-data clearfloat">'
+                        + ' <span class="col xuhao"><span>' + (index + 1) + '</span></span>'
+                        + '<span class="col biaoti"><span>' + title + '</span></span>'
+                        + '<span class="col riqi"><span>' + wxx.dateFormatByHG(time) + '</span></span>'
+                        + '</div>');
+
+                    $item.click(function () {
+                        wxx.push("./detail.html?detailType=" + detailType + "&id=" + id + "&target=" + target,"_block");
+                    });
+                    $dom.append($item);
+                })
+
+                if (!state.data.length) {
+                    $dom.append("<div class='noData'>暂无数据</div>")
+                }
+            }
+
+
+
+            //上一页 下一页  首页 尾页 点击处理
+            $(".startPageBtn").click(function () {
+                if (!$(this).attr("disabled")) {
+                    state.page = 1;
+                    refresh();
+                }
+            })
+            $(".endPageBtn").click(function () {
+                if (!$(this).attr("disabled")) {
+                    state.page = state.totalPageNumber;
+                    refresh();
+                }
+            })
+
+            $(".prePageBtn").click(function () {
+                if (!$(this).attr("disabled")) {
+                    if (state.page !== 0) {
+                        state.page = state.page - 1;
+                        refresh();
+                    }
+                }
+            })
+
+            $(".nextPageBtn").click(function () {
+                if (!$(this).attr("disabled") && state.page < state.totalPageNumber) {
+                    state.page = state.page + 1;
+                    refresh();
+                }
+            })
+
+            $(".goPageBtn").click(function () {
+                if (!$(this).attr("disabled")) {
+                    var inpVal = $(".goInputContainer input").val();
+                    if (inpVal) {
+                        if (inpVal > state.totalPageNumber) {
+                            layer.alert("输入页数大于现有页数了哟！");
+                            return;
+                        }
+                        if (inpVal < 1) {
+                            layer.alert("输入页数必须大于1");
+                            return;
+                        }
+                        state.page = Math.abs(inpVal); 
+                        refresh();
+                    } else {
+                        layer.alert("请输入大于1的页数，然后点击go");
+                    }
+                }
+            })
+
+
+        });
+    </script>
+
+</html>

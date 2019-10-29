@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="renderer" content="webkit" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="bookmark" href="favicon.ico" />
+        <title>留言</title>
+        <link rel="stylesheet" href="./lib/pintuer/pintuer.css" />
+        <link rel="stylesheet" href="./style/main.css" />
+        <link rel="stylesheet" href="./style/global.css" />
+        <link rel="stylesheet" href="./lib/swiper/swiper.css">
+        <style>
+            .top-img {
+                width: 100%;
+            }
+
+            .top-img img {
+                width: 100%;
+            }
+
+            .pageCon {
+                padding-bottom: 24px;
+            }
+
+            .pageCon .left {
+                width: 68%;
+                float: left;
+            }
+
+            .pageCon .left form {
+                width: 50%;
+            }
+
+            .pageCon .right {
+                width: 30%;
+                float: right;
+            }
+
+            .form-x .form-group .label {
+                width: 10%;
+            }
+
+            .form-x .form-group .field {
+                width: 60%;
+            }
+
+            .form-x .form-group .field .input {
+                width: 90%;
+            }
+
+            .form-x .form-button {
+                margin-left: 10%;
+            }
+
+            .tit {
+                background: #f1f1f1;
+                padding: 12px;
+                margin: 12px 0px;
+            }
+
+            .resetBtn,
+            .submitBtn {
+                padding: 6px 32px;
+                margin-right: 6px;
+            }
+
+            .right .con {
+                border: 1px solid #cccc;
+                background: rgba(250, 245, 245, 0.8);
+                padding: 12px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="bg"></div>
+        <div class="root">
+            <div class="context">
+                <!-- 头部模板 .login可加left类名-->
+                <div class="header">
+                </div>
+                <!-- <div class="w-tabs w-text-blue2" id="w-tabs"></div> -->
+                <!-- /头部模板 -->
+
+                <!-- 内容 -->
+                <div class="body">
+                    <div class="top-img">
+                        <img src="./imgs/top_img.jpg" alt="">
+                    </div>
+
+                    <!-- 当前位置 -->
+                    <div class="address-bar"></div>
+                    <!-- /当前位置 -->
+
+                    <div class="pageCon clearfloat">
+
+                        <div class="left">
+                            <div class="form-x  form-auto">
+
+                                <div class="tit">基本信息</div>
+
+                                <div class="form-group">
+                                    <div class="label">
+                                        <label for="name">姓名</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" class="input" id="name" name="name" placeholder="请输入..." />
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <div class="label">
+                                        <label for="mailbox">邮箱</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" class="input" id="mailbox" name="mailbox" placeholder="请输入..." data-validate="required:必填,email:格式错误" />
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <div class="label">
+                                        <label for="tel">手机</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" class="input" id="tel" name="tel" placeholder="请输入..." data-validate="required:必填,mobile:格式错误" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label">
+                                        <label for="address">联系地址</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" class="input" id="address" name="address" placeholder="请输入..." />
+                                    </div>
+                                </div>
+
+                                <div class="tit">意见建议</div>
+
+                                <div class="form-group">
+                                    <div class="label">
+                                        <label for="title">标题</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" class="input" id="title" name="title" placeholder="请输入..." data-validate="required:必填" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label">
+                                        <label for="content">内容</label>
+                                    </div>
+                                    <div class="field">
+                                        <textarea rows="4" type="textarea" class="input" id="content" name="content" placeholder="请输入..." data-validate="required:必填"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-button">
+                                    <button class="submitBtn button w-bg-main w-text-white  bg-main">提交</button>
+                                    <button class="resetBtn button">重置</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="right">
+                            <div class="tit">我的留言</div>
+                            <div class="con">
+
+                                <!-- <div class="form-group">
+                                    <div class="label">
+                                        <label for="mailbox">邮箱</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" class="input" id="mailbox" name="mailbox" placeholder="请输入..." data-validate="required:必填,email:格式错误" />
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <div class="label">
+                                        <label for="tel">手机（输入手机号码查看留言记录）</label>
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" class="input" id="tel" name="tel" placeholder="请输入..." data-validate="required:必填,mobile:格式错误" />
+                                    </div>
+                                </div>
+
+                                <div class="form-button">
+                                    <button class="lookSubmitBtn button w-bg-main w-text-white  bg-main">查看</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 底部模板 -->
+                <div class="footer clearfloat"></div>
+                <!-- /底部模板 -->
+                <!-- 友情链接 -->
+                <div class="otherLink">
+                    <div class="sys">
+                        <!-- 系统链接：<span></span> -->
+                    </div>
+                    <div class="yq">
+                        <!-- 友情链接：<span> </span> -->
+                    </div>
+                </div>
+                <!-- /友情链接 -->
+            </div>
+            <!-- /内容 -->
+        </div>
+
+        </div>
+
+    </body>
+    <script src="./lib/pintuer/jquery.js"></script>
+    <script src="./lib/pintuer/pintuer.js"></script>
+    <script src="./lib/pintuer/respond.js"></script>
+    <script src="./lib/layui-v2.5.4/layui-v2.5.4/layui/layui.all.js"></script>
+    <script src="./lib/swiper/swiper.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/wxx.js"></script>
+    <script>
+        $(function () {
+
+            var state = {
+                data: null,
+                target: wxx.getUrlParam("target") //0站长信箱 1政委信箱  2纪委信箱
+            };
+
+            //提交数据
+            $(".submitBtn").click(function (e) {
+                var values = wxx.getFormData('.left');
+                // if (!values.mailbox) {
+                //     layer.msg('请填写邮箱');
+                //     return;
+                // }
+                if (!values.tel) {
+                    layer.msg('请填写电话');
+                    return;
+                }
+                if (!values.title) {
+                    layer.msg('请填写标题');
+                    return;
+                }
+                if (!values.content) {
+                    layer.msg('请填写内容');
+                    return;
+                }
+                var index = layer.load(1,{
+                    shade: [0.6,"#fff"] //0.1透明度的白色背景
+                });
+
+
+                values.target = state.target;
+                w.ajax("liuYanAdd",values,function (res) {
+                    layer.close(index)
+                    if (res.success) {
+                        layer.msg('提交成功！');
+                    } else {
+                        layer.alert(res.message);
+                    }
+                });
+
+
+            })
+
+
+
+            //lookSubmitBtn
+            $(".lookSubmitBtn").click(function (e) {
+                var values = wxx.getFormData('.right');
+                // if (!values.mailbox) {
+                //     layer.msg('请填写邮箱');
+                //     return;
+                // }
+                if (!values.tel) {
+                    layer.msg('请填写电话');
+                    return;
+                }
+
+                layer.open({
+                    type: 2,
+                    title: '留言查询',
+                    shadeClose: true,
+                    shade: 0.8,
+                    area: ['100%','100%'],
+                    content: './list.html?listType=liuYan&phone=' + values.tel + '&mailbox=' + values.mailbox + '&target=' + state.target //iframe的url
+                });
+            })
+
+
+            //重置
+            $(".resetBtn").click(function (e) {
+                //询问框  
+                layer.confirm('确认要重置吗？',{
+                    btn: ['取消','确认'] //按钮
+                },function () {
+                    layer.msg('取消成功');
+                },function () {
+                    wxx.reSetForm();
+                });
+
+            })
+
+
+
+        });
+    </script>
+
+</html>

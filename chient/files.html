@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="renderer" content="webkit" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="bookmark" href="favicon.ico" />
+        <title>通讯录</title>
+        <link rel="stylesheet" href="./lib/pintuer/pintuer.css" />
+        <link rel="stylesheet" href="./style/main.css" />
+        <link rel="stylesheet" href="./style/global.css" />
+        <link rel="stylesheet" href="./lib/swiper/swiper.css">
+        <style>
+            .body {
+                width: 100%;
+            }
+
+            .top-img {
+                width: 100%;
+            }
+
+            .top-img img {
+                width: 100%;
+            }
+
+            .page-list {
+                width: 100%;
+                padding: 12px;
+                background: white;
+                min-height: 300px;
+            }
+
+            .page-list .item {
+                padding: 16px 0px 16px;
+                box-sizing: border-box;
+                border-bottom: 1px solid #eeeeee;
+                box-sizing: border-box;
+                background: rgb(243, 243, 243); 
+            }
+
+            .page-list .item:nth-last-child(1) {
+                border-bottom: 0px;
+            }
+
+            .page-list .item-data:hover {
+                opacity: 0.85;
+                cursor: pointer;
+                color: #123bf0;
+            }
+
+            .page-list .item .col {
+                float: left;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .page-list .item .col {
+                width: 15%;
+            }
+
+            .page-list .item .col.intercomNumber {
+                width: 22%;
+            }
+
+            /* 
+            .page-list .item .xuhao {
+                width: 8%;
+            }
+
+            .page-list .item .biaoti {
+                width: 82%;
+                text-align: left;
+            } */
+
+            .page-list .item .riqi {
+                width: 10%
+            }
+
+            .page-list .page-list-item-header {
+                /* background: #eeeeee; */
+                background: #d1d1d1;
+            }
+
+            /* 分页样式 */
+            .pageFooter {
+                background: white;
+                padding:12px;
+                padding-top:0px; 
+            }
+
+            .pageFooter-content {
+                background: #e1ebf6;
+                padding: 16px 12px;
+                font-weight: 700;
+            }
+
+            .pageFooter-content .pageFooter-left {
+                line-height: 26px;
+            }
+
+            .pageFooter-content .value-padding {
+                padding: 0px 3px;
+            }
+
+            .pageFooter-content .pageFooter-right .btn {
+                padding: 6px 12px;
+                border-radius: 3px;
+                box-shadow: 0 0 2px rgb(143, 141, 141);
+                margin-left: 8px;
+                cursor: pointer;
+            }
+
+            .pageFooter-content .pageFooter-right .goInputContainer {
+                float: left;
+                margin-left: 8px;
+            }
+
+            .pageFooter-content .pageFooter-right .goInputContainer input {
+                height: 26px;
+                border: none;
+                margin-left: 6px;
+                width: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+            <div id="bg"></div>
+        <div class="root">
+            <div class="context">
+                <!-- 头部模板 .login可加left类名-->
+                <div class="header"></div>
+                <!-- /头部模板 -->
+
+                <!-- 内容 -->
+                <div class="body">
+
+                    <div class="top-img">
+                        <img src="./imgs/01.jpg" alt="">
+                    </div>
+
+                    <!-- 当前位置 -->
+                    <!-- <div class="address-bar"></div> -->
+                    <!-- /当前位置 -->
+
+
+                    <div class="page-list" id="pageList">
+                        <div class="item page-list-item-header clearfloat">
+                            <span class="col xuhao">
+                                <span>姓名</span>
+                            </span>
+                            <span class="col position">
+                                <span>职位</span>
+                            </span>
+                            <span class="col phone">
+                                <span>手机号码</span>
+                            </span>
+                            <span class="col intercomNumber">
+                                <span>对讲机号码</span>
+                            </span>
+                            <span class="col intranet">
+                                <span>内网</span>
+                            </span>
+                            <span class="col privateNetwork">
+                                <span>电信专网</span>
+                            </span>
+                        </div>
+
+                        <!-- <div class="item clearfloat">
+                            <span class="col xuhao">
+                                <span>1</span>
+                            </span>
+                            <span class="col biaoti">  
+                                <span><a href="./tel.doc">大连长兴岛边检站电话号码表</a></span>
+                            </span>
+                        </div> -->
+                    </div>
+
+
+                </div>
+                <!-- /内容 -->
+
+                <!-- 底部模板 -->
+                <div class="footer clearfloat"></div>
+                <!-- /底部模板 -->
+                <!-- 友情链接 -->
+                <div class="otherLink">
+                    <div class="sys">
+                        <!-- 系统链接：<span></span> -->
+                    </div>
+                    <div class="yq">
+                        <!-- 友情链接：<span> </span> -->
+                    </div>
+                </div>
+                <!-- /友情链接 -->
+            </div>
+
+        </div>
+
+    </body>
+    <script src="./lib/pintuer/jquery.js"></script>
+    <script src="./lib/pintuer/pintuer.js"></script>
+    <script src="./lib/pintuer/respond.js"></script>
+    <script src="./lib/layui-v2.5.4/layui-v2.5.4/layui/layui.all.js"></script>
+    <script src="./lib/swiper/swiper.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/wxx.js"></script>
+    <script>
+        $(function () {
+
+            var state = {
+
+
+                data: [
+                    // {
+                    //     name: "王金龙",
+                    //     phone: "18941171976",
+                    //     position: "站  长",
+                    //     intercomNumber: "5428681",
+                    //     intranet: "101",
+                    //     privateNetwork: "13842881976",
+                    // },
+                   
+                ]
+            };
+
+            refresh();
+            function refresh() {
+                var index = layer.load(1,{
+                    shade: [0.6,"#fff"] //0.1透明度的白色背景
+                });
+                w.ajax("getCxdWebMailListList",{},function (res) {
+                    layer.close(index)
+                    var arr = [];
+                    if (res.success) {
+                        for (var i = 0; i < res.data.length; i++) {
+                            var item = res.data[i];
+                            arr.push({
+                                name: item.name,
+                                phone: item.tel,
+                                position: item.dept,
+                                intercomNumber: item.interphoneNumber,
+                                intranet: item.intranet,
+                                privateNetwork: item.privateNetwork
+                            })
+                        }
+                        state.data = arr;
+                        render();
+                    } else {
+                        layer.alert(res.message);
+                    }
+
+                })
+            }
+
+
+            function render() {
+                var $dom = $("#pageList");
+                $.each(state.data,function (i,item) {
+                    var $item = $('<div class="item clearfloat"></div>');
+                    $dom.append($item);
+                    var name = item.name;
+                    var privateNetwork = item.privateNetwork;
+                    var intranet = item.intranet;
+                    var phone = item.phone;
+                    var position = item.position;
+                    var intercomNumber = item.intercomNumber;
+                    $item.append('<span class="col name">' + name + '</span>');
+                    $item.append('<span class="col position">' + position + '</span>');
+                    $item.append('<span class="col phone">' + phone + '</span>');
+                    $item.append('<span class="col intercomNumber">' + intercomNumber + '</span>');
+                    $item.append('<span class="col intranet">' + intranet + '</span>');
+                    $item.append('<span class="col privateNetwork">' + privateNetwork + '</span>');
+
+                })
+
+            }
+
+
+
+        });
+    </script>
+
+</html>

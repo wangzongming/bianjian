@@ -1,0 +1,66 @@
+@import "../global.less";
+
+.root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url("../../img/loginBg.jpg") no-repeat center center / cover;
+    // background-color: rgba(185, 23, 23, 0.5);
+    .version {
+        color: @red;
+        margin: 16px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    // :global{
+    //     .login-form{
+    //         border: 1px solid red;
+    //     }
+    // }
+    .formContainer {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+        // width: 80%;
+        // margin: 50px auto;
+        padding: 3vw 0px;
+        // margin-top: 30px;
+        max-width: 700px;
+        height: 400px;
+        width: 500px;
+        box-sizing: border-box;
+        border-radius: 3px;
+        background: rgba(241, 239, 239, 0.705);
+        border-radius: 3px;
+        box-shadow: 0px 0px 3px rgba(241, 239, 239, 0.705);
+        :global {
+            .ant-form {
+                max-width: 400px;
+                margin: 0px auto;
+            }
+        }
+        .logo {
+            text-align: center;
+            font-size: 35px;
+            text-shadow: 0 0 10px rgba(134, 132, 132, 0.3);
+            // color: rgb(250, 246, 246);
+            font-weight: 700;
+            // margin-top: 20%;
+            img {
+                width: 50%;
+            }
+        }
+        .nadmin {
+            margin: 20px auto;
+            text-align: center;
+            // color: #bbb;
+        }
+        .loginBtn {
+            width: 100%;
+            display: inline-block;
+        }
+    }
+}

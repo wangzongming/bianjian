@@ -1,0 +1,58 @@
+/*滚动条样式*/
+.scrollstyle {
+    &::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+        height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: 5px;
+        -webkit-box-shadow: inset 0 0 8px rgb(24, 144, 255);
+        // background: #00284d
+    }
+    &::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        // -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+        // background: transparent;
+        // background: rgb(1, 28, 58);
+    }
+}
+
+.SiderCon {
+    flex: 0 0 233px !important;
+    height:100vh;
+    // max-width: 250px !important;
+    :global {
+        .ant-menu { 
+            height: 100%;
+            .scrollstyle;
+            overflow-y:scroll;
+            overflow-x:hidden;
+            // height: calc(100vh - 41px);
+            color: rgb(24, 144, 255);
+        }
+        .ant-menu-item-selected {
+            background-color: rgb(24, 144, 255) !important;
+            color: white;
+        }
+    }
+}
+
+.loginContainer {
+    overflow: hidden;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    //   color: white;
+    font-weight: 600;
+    text-align: center;
+    //   background: #00284d;
+    background: white;
+    // text-shadow: 0 0 2px rgba(251, 251, 251, 0.6);
+    .logo {
+        width: 40px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+}
